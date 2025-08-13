@@ -1,21 +1,13 @@
 steps:
-  # Build the Next.js application image
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'build'
-      - '--no-cache'
-      - '--tag=gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
-      - '--target=runner'
-      - '.'
-
-  # Deploy the image to Cloud Run
+  # Deploy the source to Cloud Run
   - name: 'gcr.io/google.com/cloudsdk/cloud-sdk'
     entrypoint: gcloud
     args:
       - 'run'
       - 'deploy'
       - '$_SERVICE_NAME'
-      - '--image=gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
+      # Deploy directly from source
+      - '--source=.'
       - '--region=$_REGION'
       - '--platform=managed'
       - '--port=8080'
