@@ -1,6 +1,6 @@
 steps:
   # Build the Next.js application image
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker1'
     args:
       - 'build'
       - '--tag=gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
