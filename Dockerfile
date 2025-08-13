@@ -1,42 +1,48 @@
-# 1. Install dependencies only when needed
-FROM node:20-alpine AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
-WORKDIR /app
-
-# Install dependencies based on the preferred package manager
-COPY package.json ./
-RUN npm install
-
-# 2. Rebuild the source code only when needed
+# Use a minimal base image for the builder stage
 FROM node:20-alpine AS builder
+
+# Set the working directory
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+
+# Copy package.json and package-lock.json to leverage Docker cache
+COPY package.json package-lock.json ./
+
+# Install production dependencies
+RUN npm ci --production
+
+# Copy the rest of the application code
 COPY . .
 
-# This will do the trick, use the corresponding env file for each environment.
+# Build the Next.js application
 RUN npm run build
 
-# 3. Production image, copy all the files and run next
+# Use a minimal base image for the runner stage
 FROM node:20-alpine AS runner
+
+# Set the working directory
 WORKDIR /app
 
-ENV NODE_ENV=production
+# Set environment variables for Cloud Run
+ENV NODE_ENV production
+ENV PORT 8080
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# Create a non-root user
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 
+# Copy the built application from the builder stage
+# Using Next.js standalone output
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Change ownership to the non-root user
+RUN chown -R appuser:appgroup /app
 
-USER nextjs
+# Switch to the non-root user
+USER appuser
 
-EXPOSE 3000
+# Expose the port
+EXPOSE 8080
 
-ENV PORT 3000
-
+# Command to run the application
 CMD ["node", "server.js"]
