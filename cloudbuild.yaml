@@ -3,6 +3,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
+      - '--no-cache'
       - '--tag=gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
       - '--target=runner'
       - '.'
