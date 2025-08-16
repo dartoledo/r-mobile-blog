@@ -1,6 +1,6 @@
 steps:
   # Deploy the source to Cloud Run
-  - name: 'gcr.io/google.com/cloudsdk/cloud-sdk'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:534.0.0'
     entrypoint: gcloud
     args:
       - 'run'
