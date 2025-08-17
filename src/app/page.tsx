@@ -24,10 +24,16 @@ export default async function Home() {
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  The Future of Mobile is Here
+                Welcome to  Kaizen PF.
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Explore the latest insights, updates, and stories from Rakuten Mobile. Discover how we're revolutionizing the telecommunications landscape.
+                In Japan, the concept of Kaizen (改善) is powerful. It’s the art of continuous, incremental improvement that transforms industries. We live it every day in our jobs, striving for that elegant, one-percent-better solution.
+
+What if you applied that same philosophy to your wallet?
+
+That's the question that launched this blog. I'm Wyn Saves Yen, and I believe the path to financial mastery in Japan isn't about one giant leap; it's about a thousand tiny, deliberate steps.
+
+This is  Kaizen PF. We’ll explore how utilizing AI and the mindset of Kaizen can radically transform your Cash flow and personal finance. From optimizing monthly telecom bills, demystifying iDeCo and NISA to maximizing your salary, we’ll build a better life, one improvement at a time. 
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -54,7 +60,7 @@ export default async function Home() {
             <div className="space-y-2">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">Explore Our Content</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Dive into topics that matter. From network innovations to heartwarming user stories, find what interests you most.
+                Dive into topics that matter. From tech, finance to heartwarming user stories, find what interests you most.
               </p>
             </div>
           </div>

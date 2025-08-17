@@ -66,3 +66,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.btn__link-primary {
+    color: #ffffff;
+    background-color: #b2384e;
+}

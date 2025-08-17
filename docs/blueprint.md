@@ -1,4 +1,4 @@
-# **App Name**: Rakuten Mobile Insights
+# **App Name**:  Kaizen PF: A Blog by Wyn Saves Yen
 
 ## Core Features:
 

@@ -25,14 +25,14 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     return {};
   }
   return {
-    title: `${post.title} | Rakuten Mobile Insights`,
+    title: `${post.title} |  Kaizen PF: A Blog by Wyn Saves Yen`,
     description: post.excerpt,
   };
 }
 
 function SocialShareButtons({ title, slug }: { title: string; slug: string }) {
   const url = `https://your-domain.com/blog/${slug}`; // Replace with actual domain in production
-  const text = `Check out this article from Rakuten Mobile Insights: ${title}`;
+  const text = `Check out this article from  Kaizen PF: A Blog by Wyn Saves Yen: ${title}`;
 
   return (
     <div className="flex items-center gap-2">

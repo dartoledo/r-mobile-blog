@@ -3,8 +3,8 @@ import { PostCard } from '@/components/blog/post-card';
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog | Rakuten Mobile Insights',
-  description: 'Read the latest articles, updates, and stories from the Rakuten Mobile team.',
+  title: 'Blog |  Kaizen PF: A Blog by Wyn Saves Yen',
+  description: 'Applying Continuous Improvement to Your Finances with AI and Fintech',
 };
 
 type BlogPageProps = {
@@ -30,7 +30,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
           {category
             ? `Browse all articles in the "${category}" category.`
-            : 'The latest news, updates, and stories from the Rakuten Mobile team.'}
+            : 'The latest news, updates, and stories related to personal finance, AI and fintech in Japan.'}
         </p>
       </div>
 

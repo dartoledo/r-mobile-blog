@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About Us' },
+  { href: '/disclaimer', label: 'Disclaimer' },
 ];
 
 export function Header() {
@@ -23,7 +24,7 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <Smartphone className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline sm:inline-block">
-              Rakuten Mobile Insights
+               Kaizen PF
             </span>
           </Link>
         </div>

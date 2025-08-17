@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/toaster";
 
 
 export const metadata: Metadata = {
-  title: 'Rakuten Mobile Insights',
-  description: 'Your source for the latest on Rakuten Mobile network, technology, and stories.',
+  title: ' Kaizen PF: A Blog by Wyn Saves Yen',
+  description: 'Your source for the latest on  Personal Finance, technology, and stories in Tokyo.',
 };
 
 export default function RootLayout({

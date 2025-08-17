@@ -17,10 +17,16 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'network.mobile.rakuten.co.jp',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   devServer: {
-    allowedDevOrigins: ["https://*.cloudworkstations.dev"],
+    allowedDevOrigins: ["https://*.cloudworkstations.dev","https://network.mobile.rakuten.co.jp"],
   },
 };
 
